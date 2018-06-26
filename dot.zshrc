@@ -1,3 +1,4 @@
+
 # =============================================================================
 #                                   Functions
 # =============================================================================
@@ -75,7 +76,6 @@ zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug "plugins/common-aliase",     from:oh-my-zsh
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/colorize",          from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "plugins/copydir",           from:oh-my-zsh
 zplug "plugins/copyfile",          from:oh-my-zsh
 zplug "plugins/cp",                from:oh-my-zsh
@@ -83,29 +83,18 @@ zplug "plugins/dircycle",          from:oh-my-zsh
 zplug "plugins/encode64",          from:oh-my-zsh
 zplug "plugins/extract",           from:oh-my-zsh
 zplug "plugins/history",           from:oh-my-zsh
-zplug "plugins/tmux",              from:oh-my-zsh
-zplug "plugins/tmuxinator",        from:oh-my-zsh
 zplug "plugins/urltools",          from:oh-my-zsh
 zplug "plugins/web-search",        from:oh-my-zsh
 zplug "plugins/z",                 from:oh-my-zsh
 zplug "plugins/fancy-ctrl-z",      from:oh-my-zsh
 
-# Supports oh-my-zsh plugins and the like
-if [[ $OSTYPE = (linux)* ]]; then
-    zplug "plugins/archlinux",     from:oh-my-zsh, if:"(( $+commands[pacman] ))"
-    zplug "plugins/dnf",           from:oh-my-zsh, if:"(( $+commands[dnf] ))"
-fi
-
-if [[ $OSTYPE = (darwin)* ]]; then
-    zplug "lib/clipboard",         from:oh-my-zsh
-    zplug "plugins/osx",           from:oh-my-zsh
-    zplug "plugins/brew",          from:oh-my-zsh, if:"(( $+commands[brew] ))"
-    zplug "plugins/macports",      from:oh-my-zsh, if:"(( $+commands[port] ))"
-fi
+zplug "lib/clipboard",         from:oh-my-zsh
+zplug "plugins/osx",           from:oh-my-zsh
+zplug "plugins/brew",          from:oh-my-zsh, if:"(( $+commands[brew] ))"
+zplug "plugins/macports",      from:oh-my-zsh, if:"(( $+commands[port] ))"
 
 zplug "plugins/gitfast",               from:oh-my-zsh, if:"(( $+commands[git] ))"
 zplug "plugins/golang",            from:oh-my-zsh, if:"(( $+commands[go] ))"
-zplug "plugins/svn",               from:oh-my-zsh, if:"(( $+commands[svn] ))"
 zplug "plugins/node",              from:oh-my-zsh, if:"(( $+commands[node] ))"
 zplug "plugins/npm",               from:oh-my-zsh, if:"(( $+commands[npm] ))"
 zplug "plugins/bundler",           from:oh-my-zsh, if:"(( $+commands[bundler] ))"
@@ -115,8 +104,6 @@ zplug "plugins/rvm",               from:oh-my-zsh, if:"(( $+commands[rvm] ))"
 zplug "plugins/aws",               from:oh-my-zsh, if:"(( $+commands[aws] ))"
 zplug "plugins/pip",               from:oh-my-zsh, if:"(( $+commands[pip] ))"
 zplug "plugins/sudo",              from:oh-my-zsh, if:"(( $+commands[sudo] ))"
-zplug "plugins/gpg-agent",         from:oh-my-zsh, if:"(( $+commands[gpg-agent] ))"
-zplug "plugins/systemd",           from:oh-my-zsh, if:"(( $+commands[systemctl] ))"
 zplug "plugins/docker",            from:oh-my-zsh, if:"(( $+commands[docker] ))"
 zplug "plugins/docker-compose",    from:oh-my-zsh, if:"(( $+commands[docker-compose] ))"
 zplug "plugins/chucknorris",       from:oh-my-zsh
@@ -552,5 +539,6 @@ zplug load
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 eval $(thefuck --alias)
 #ZLE_RPROMPT_INDENT=0
+archey
 chuck_cow | lolcat
 # vim: ft=zsh
