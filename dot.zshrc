@@ -550,5 +550,5 @@ zplug load
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 
 #ZLE_RPROMPT_INDENT=0
-
+true
 # vim: ft=zsh
