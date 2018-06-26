@@ -103,7 +103,7 @@ if [[ $OSTYPE = (darwin)* ]]; then
     zplug "plugins/macports",      from:oh-my-zsh, if:"(( $+commands[port] ))"
 fi
 
-zplug "plugins/git",               from:oh-my-zsh, if:"(( $+commands[git] ))"
+zplug "plugins/gitfast",               from:oh-my-zsh, if:"(( $+commands[git] ))"
 zplug "plugins/golang",            from:oh-my-zsh, if:"(( $+commands[go] ))"
 zplug "plugins/svn",               from:oh-my-zsh, if:"(( $+commands[svn] ))"
 zplug "plugins/node",              from:oh-my-zsh, if:"(( $+commands[node] ))"
@@ -112,12 +112,14 @@ zplug "plugins/bundler",           from:oh-my-zsh, if:"(( $+commands[bundler] ))
 zplug "plugins/gem",               from:oh-my-zsh, if:"(( $+commands[gem] ))"
 zplug "plugins/rbenv",             from:oh-my-zsh, if:"(( $+commands[rbenv] ))"
 zplug "plugins/rvm",               from:oh-my-zsh, if:"(( $+commands[rvm] ))"
+zplug "plugins/aws",               from:oh-my-zsh, if:"(( $+commands[aws] ))"
 zplug "plugins/pip",               from:oh-my-zsh, if:"(( $+commands[pip] ))"
 zplug "plugins/sudo",              from:oh-my-zsh, if:"(( $+commands[sudo] ))"
 zplug "plugins/gpg-agent",         from:oh-my-zsh, if:"(( $+commands[gpg-agent] ))"
 zplug "plugins/systemd",           from:oh-my-zsh, if:"(( $+commands[systemctl] ))"
 zplug "plugins/docker",            from:oh-my-zsh, if:"(( $+commands[docker] ))"
 zplug "plugins/docker-compose",    from:oh-my-zsh, if:"(( $+commands[docker-compose] ))"
+zplug "plugins/chucknorris",       from:oh-my-zsh
 
 #zplug "djui/alias-tips"
 zplug "hlissner/zsh-autopair", defer:2
@@ -538,7 +540,7 @@ fi
 zplug load
 
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
-
+[ -d "$HOME/.gem/ruby/2.3.0/bin" ] && export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"
 # Source defined functions.
 [[ -f ~/.zsh_functions ]] && source ~/.zsh_functions
 
@@ -548,7 +550,7 @@ zplug load
 # Source exports and aliases.
 [[ -f ~/.zsh_exports ]] && source ~/.zsh_exports
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
-
+eval $(thefuck --alias)
 #ZLE_RPROMPT_INDENT=0
-true
+chuck_cow | lolcat
 # vim: ft=zsh
