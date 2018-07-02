@@ -103,6 +103,7 @@ zplug "plugins/rbenv",             from:oh-my-zsh, if:"(( $+commands[rbenv] ))"
 zplug "plugins/rvm",               from:oh-my-zsh, if:"(( $+commands[rvm] ))"
 zplug "plugins/aws",               from:oh-my-zsh, if:"(( $+commands[aws] ))"
 zplug "plugins/pip",               from:oh-my-zsh, if:"(( $+commands[pip] ))"
+zplug "plugins/pyenv",               from:oh-my-zsh, if:"(( $+commands[pyenv] ))"
 zplug "plugins/sudo",              from:oh-my-zsh, if:"(( $+commands[sudo] ))"
 zplug "plugins/docker",            from:oh-my-zsh, if:"(( $+commands[docker] ))"
 zplug "plugins/docker-compose",    from:oh-my-zsh, if:"(( $+commands[docker-compose] ))"
@@ -214,6 +215,8 @@ alias 8='pu -8'
 alias 9='pu -9'
 alias pu='() { pushd $1 &> /dev/null; dirs -v; }'
 alias po='() { popd &> /dev/null; dirs -v; }'
+alias git=hub
+alias j=jump
 
 zshaddhistory() { whence ${${(z)1}[1]} >| /dev/null || return 1 }
 
@@ -528,6 +531,7 @@ zplug load
 
 [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
 [ -d "$HOME/.gem/ruby/2.3.0/bin" ] && export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"
+[ -d "$HOME/Library/Python/2.7/bin" ] && export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 # Source defined functions.
 [[ -f ~/.zsh_functions ]] && source ~/.zsh_functions
 
